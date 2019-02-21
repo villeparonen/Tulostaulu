@@ -4,15 +4,18 @@ import Counter from './Counter';
 function Player(props) {
   return (
     <div className="player">
-      <div className="player-name">
-        <a className="remove-player" onClick={props.onRemove}>X</a>
+      <span className="player-name">
+        <a className="remove-player" onClick={() => props.removePlayer(props.id)}>X</a>
         {props.name}
-      </div>
+      </span>
       <div className="player-score">
-        <Counter score={props.score} onChange={props.onScoreChange} />
+        <Counter
+          score={props.score}
+          index={props.index}
+          changeScore={props.changeScore} />
       </div>
     </div>
   )
 }
 
-  export default Player;
+export default Player;
